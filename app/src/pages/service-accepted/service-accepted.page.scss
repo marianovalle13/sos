@@ -1,0 +1,33 @@
+ion-content{
+
+    .button-warning {
+    color: white !important;
+    height: 20px !important;
+    font-size: 0.6em;
+    --border-radius: 25px !important;
+  }
+
+   .card-class-map {
+    padding: 0px !important;
+    padding-left: 16px !important;
+    padding-right: 16px !important;
+  }
+
+  .list-class{
+    padding-top: 0px;
+    padding-bottom: 0px;
+  }
+
+  .accept-button{
+    --background: var(--ion-color-secondary);
+    color: var(--ion-color-light);
+  }
+
+    .save-comment {
+      color: white !important;
+      height: 25px !important;
+      --background: var(--ion-color-secondary);
+      border-radius: 2px !important;
+  }
+
+}

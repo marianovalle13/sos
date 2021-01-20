@@ -1,0 +1,22 @@
+<ion-app>
+  <ion-split-pane>
+    <ion-menu *ngIf="showMenu" color="primary" class="side-menu">
+      <ion-content>
+        <ion-list lines="none">
+          <ion-item class="avatar-item" color="primary">
+            <ion-avatar slot="start">
+              <img [src]="imageToShow" onError="this.src='assets/imgs/logo.png'">
+            </ion-avatar>
+            <ion-label>
+              <!-- <p class="name">Juan Perez</p> -->
+              <p class="name">{{user.lastName}} {{user.firstName}}</p>
+              <!-- <p class="subtitle">juanperez@gmail.com</p> -->
+              <p class="subtitle">{{user.user}}</p>
+            </ion-label>
+          </ion-item>
+        </ion-list>
+      </ion-content>
+    </ion-menu>
+    <ion-router-outlet main></ion-router-outlet>
+  </ion-split-pane>
+</ion-app>

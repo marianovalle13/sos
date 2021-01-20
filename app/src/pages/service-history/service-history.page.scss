@@ -1,0 +1,64 @@
+ion-content{
+
+    .button-warning {
+    color: white !important;
+    height: 20px !important;
+    font-size: 0.6em;
+    --border-radius: 25px !important;
+  }
+
+   .card-class-map {
+    padding: 0px !important;
+    padding-left: 16px !important;
+    padding-right: 16px !important;
+  }
+
+  .list-class{
+    padding-top: 0px;
+    padding-bottom: 0px;
+  }
+
+  .save-comment {
+    color: white !important;
+    height: 25px !important;
+    --background: var(--ion-color-secondary);
+    border-radius: 2px !important;
+}
+
+  .accept-button{
+    --background: var(--ion-color-secondary);
+    color: var(--ion-color-light);
+  }
+
+
+  .listReferenciaServicioCollapse{
+    height: 70px;
+    transition: all .5s ease;
+  }
+
+  .listReferenciaServicioExpand{
+    height: auto;
+    transition: all .5s ease;
+  }
+
+  .listReferenciaLocalizacionCollapse{
+    height: 70px;
+    transition: all .5s ease;
+  }
+
+  .listReferenciaLocalizacionExpand{
+    height: auto;
+    transition: all .5s ease;
+  }
+
+  .listCommentsCollapse{
+    height: 70px;
+    transition: all .5s ease;
+  }
+
+  .listCommentsExpand{
+    height: auto;
+    transition: all .5s ease;
+  }
+
+}

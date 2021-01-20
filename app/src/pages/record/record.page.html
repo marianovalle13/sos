@@ -1,0 +1,139 @@
+<ion-header>
+  <ion-toolbar no-border-top color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button [text]='' defaultHref="services"></ion-back-button>
+      <ion-title>Historial</ion-title>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content>
+  <ion-row>
+    <ion-col>
+      <ion-button style="--background: var(--ion-color-secondary);" class="button" expand="block" (click)="goToFilter()"> FILTRAR</ion-button>
+    </ion-col>
+  </ion-row>
+
+  <ion-list *ngFor="let item of servicios">
+    <ion-item (click)="loadServicio(item.servicio)"
+      *ngIf="settings.codigosEstado[item.codigo_estado].finalizado">
+      <ion-col size="8">
+        <label>{{item.tipo}}</label>
+        <p style="color: gray; margin-bottom: 0px; font-size: 0.8em;">{{item.servicio}}: {{item.diagnostico}}</p>
+      </ion-col>
+      <ion-col size="4" text-right>
+        <ion-button  style="margin-bottom: 5px; padding-right: 1rem;" class="button-warning  {{getCodigoEstadoButtonClass(item.codigo_estado)}}">{{item.estado}}</ion-button >
+        <ion-icon style="color: black; font-size: 1.6rem;" name="arrow-forward"></ion-icon>
+      </ion-col>
+    </ion-item>
+  </ion-list>
+
+  <!-- <ion-list>
+    <ion-item>
+      <ion-col size="8">
+        <label>GRÚA</label>
+        <p style="color: gray; margin-bottom: 0px; font-size: 0.8em;">20145265214523: Bomba de nafta</p>
+      </ion-col>
+      <ion-col size="4" text-right>
+        <ion-button style="--background: var(--ion-color-blue); margin-bottom: 5px; padding-right: 1rem;"
+          class="button-warning">Finalizado</ion-button>
+        <ion-icon style="color: black; font-size: 1.6rem;" name="arrow-forward"></ion-icon>
+      </ion-col>
+    </ion-item>
+
+  </ion-list>
+  <ion-list>
+    <ion-item>
+      <ion-col size="8">
+        <label>GRÚA</label>
+        <p style="color: gray; margin-bottom: 0px; font-size: 0.8em;">20145265214523: Bomba de nafta</p>
+      </ion-col>
+      <ion-col size="4" text-right>
+        <ion-button style="--background: var(--ion-color-danger); margin-bottom: 5px; padding-right: 1rem;"
+          class="button-warning">Rechazado</ion-button>
+        <ion-icon style="color: black; font-size: 1.6rem;" name="arrow-forward"></ion-icon>
+      </ion-col>
+    </ion-item>
+
+  </ion-list>
+
+  <ion-list>
+    <ion-item>
+      <ion-col size="8">
+        <label>GRÚA</label>
+        <p style="color: gray; margin-bottom: 0px; font-size: 0.8em;">20145265214523: Bomba de nafta</p>
+      </ion-col>
+      <ion-col size="4" text-right>
+        <ion-button style="--background: var(--ion-color-blue); margin-bottom: 5px; padding-right: 1rem;"
+          class="button-warning">Finalizado</ion-button>
+        <ion-icon style="color: black; font-size: 1.6rem;" name="arrow-forward"></ion-icon>
+      </ion-col>
+    </ion-item>
+
+  </ion-list>
+
+  <ion-list>
+    <ion-item>
+      <ion-col size="8">
+        <label>GRÚA</label>
+        <p style="color: gray; margin-bottom: 0px; font-size: 0.8em;">20145265214523: Bomba de nafta</p>
+      </ion-col>
+      <ion-col size="4" text-right>
+        <ion-button style="--background: var(--ion-color-danger); margin-bottom: 5px; padding-right: 1rem;"
+          class="button-warning">Rechazado</ion-button>
+        <ion-icon style="color: black; font-size: 1.6rem;" name="arrow-forward"></ion-icon>
+      </ion-col>
+    </ion-item>
+
+  </ion-list>
+
+  <ion-list>
+    <ion-item>
+      <ion-col size="8">
+        <label>GRÚA</label>
+        <p style="color: gray; margin-bottom: 0px; font-size: 0.8em;">20145265214523: Bomba de nafta</p>
+      </ion-col>
+      <ion-col size="4" text-right>
+        <ion-button style="--background: var(--ion-color-danger); margin-bottom: 5px; padding-right: 1rem;"
+          class="button-warning">Rechazado</ion-button>
+        <ion-icon style="color: black; font-size: 1.6rem;" name="arrow-forward"></ion-icon>
+      </ion-col>
+    </ion-item>
+
+  </ion-list>
+
+  <ion-list>
+    <ion-item>
+      <ion-col size="8">
+        <label>GRÚA</label>
+        <p style="color: gray; margin-bottom: 0px; font-size: 0.8em;">20145265214523: Bomba de nafta</p>
+      </ion-col>
+      <ion-col size="4" text-right>
+        <ion-button style="--background: var(--ion-color-blue); margin-bottom: 5px; padding-right: 1rem;"
+          class="button-warning">Finalizado</ion-button>
+        <ion-icon style="color: black; font-size: 1.6rem;" name="arrow-forward"></ion-icon>
+      </ion-col>
+    </ion-item>
+
+  </ion-list>
+
+
+  <ion-list>
+    <ion-item>
+      <ion-col size="8">
+        <label>GRÚA</label>
+        <p style="color: gray; margin-bottom: 0px; font-size: 0.8em;">20145265214523: Bomba de nafta</p>
+      </ion-col>
+      <ion-col size="4" text-right>
+        <ion-button style="--background: var(--ion-color-blue); margin-bottom: 5px; padding-right: 1rem;"
+          class="button-warning">Finalizado</ion-button>
+        <ion-icon style="color: black; font-size: 1.6rem;" name="arrow-forward"></ion-icon>
+      </ion-col>
+    </ion-item>
+
+  </ion-list> -->
+
+</ion-content>
+
+<!-- <p style="color: gray; margin-bottom: 0px;">20145265214523: Bomba de nafta</p> -->

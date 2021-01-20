@@ -1,0 +1,122 @@
+<ion-header>
+  <ion-toolbar no-border-top color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button [text]='' defaultHref="services"></ion-back-button>
+      <ion-title>Detalle de servicio</ion-title>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content>
+
+  <ion-card>
+    <ion-card-content class="card-class">
+      <ion-row>
+        <ion-col size="8">
+          <p style="color: gray; margin-bottom: 0px; font-size: 0.8em;">{{servicioId}}: {{servicio?.diagnostico}}</p>
+        </ion-col>
+        <ion-col size="4" text-right>
+          <ion-button *ngIf="servicio" style="margin-bottom: 5px; padding-right: 1rem;"
+            class="button-warning" [ngClass]="servicio ? servicioCodigoEstadoButtonClass : ''">{{servicio.estado}}</ion-button>
+        </ion-col>
+      </ion-row>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card>
+    <ion-card-content >
+
+      <ion-row>
+        <h2 style="font-size: 1.4rem; color: black;">Cliente: </h2>
+        <p style="margin-bottom: 0px; margin-left: 5px; color: gray;">{{servicio?.compania}}</p>
+      </ion-row>
+      <ion-row>
+        <h2 style="font-size: 1.4rem; color: black;">Nombre:</h2>
+        <p style="margin-bottom: 0px; margin-left: 5px; color: gray;">{{servicio?.nombreCliente}}</p>
+      </ion-row>
+      <ion-row>
+        <h2 style="font-size: 1.4rem; color: black;">Marca y modelo:</h2>
+        <p style="margin-bottom: 0px; margin-left: 5px; color: gray;">{{servicio?.vehiculo?.marca}}</p>
+      </ion-row>
+      <ion-row>
+        <h2 style="font-size: 1.4rem; color: black;">Color:</h2>
+        <p style="margin-bottom: 0px; margin-left: 5px; color: gray;">{{servicio?.vehiculo?.color}}</p>
+      </ion-row>
+      <ion-row>
+        <h2 style="font-size: 1.4rem; color: black;">Patente:</h2>
+        <p style="margin-bottom: 0px; margin-left: 5px; color: gray;">{{servicio?.vehiculo?.dominio}}</p>
+      </ion-row>
+      <ion-row *ngIf="servicio?.montoAdicional > 0 ">
+        <h2 style="font-size: 1.4rem; color: black;">Adicionales a cobrar:</h2>
+        <p style="margin-bottom: 0px; margin-left: 5px; color: red;">$ {{servicio?.montoAdicional}}</p>
+      </ion-row>
+      <ion-row>
+        <h2 style="font-size: 1.4rem; color: black;">Cobertura de peajes:</h2>
+        <p style="margin-bottom: 0px; margin-left: 5px; color: gray;">{{servicio?.peajes}}</p>
+      </ion-row>
+      <ion-row>
+        <h2 style="font-size: 1.4rem; color: black;">Origen:</h2>
+        <p style="margin-bottom: 0px; margin-left: 5px; color: gray;">{{servicio?.direccionOrigen}}, {{servicio?.localidadOrigen}}</p>
+      </ion-row>
+      <ion-row *ngIf="servicio?.direccionOrigen != servicio?.direccionDestino">
+        <h2 style="font-size: 1.4rem; color: black;">Destino:</h2>
+        <p style="margin-bottom: 0px; margin-left: 5px; color: gray;">{{servicio?.direccionDestino}}, {{servicio?.localidadDestino}}</p>
+      </ion-row>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card *ngIf="servicio?.referenciaServicio && servicio?.referenciaServicio.length > 0"
+    [ngClass]="listReferenciaServicio ? 'listReferenciaServicioCollapse' : 'listReferenciaServicioExpand'">
+    <ion-card-header (click)="listReferenciaServicio = !listReferenciaServicio">
+        <span style="font-weight: bolder">Referencia de Servicio</span>
+        <ion-icon style="float: left ;color: black; font-size: 1.6rem; margin-right: 16px;"
+          [name]="listReferenciaServicio ? 'add-circle' : 'remove-circle' ">
+      </ion-icon>
+    </ion-card-header>
+    <ion-card-content *ngFor="let rs of servicio.referenciaServicio">
+        <span style="font-weight: bolder">{{rs.fecha}}: </span><span>{{rs.referencia}}</span>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card *ngIf="servicio?.referenciaLocalizacion && isArray(servicio?.referenciaLocalizacion) && servicio?.referenciaLocalizacion.length > 0"
+    [ngClass]="listReferenciaLocalizacion ? 'listReferenciaLocalizacionCollapse' : 'listReferenciaLocalizacionExpand'">
+    <ion-card-header (click)="listReferenciaLocalizacion = !listReferenciaLocalizacion">
+        <span style="font-weight: bolder">Referencia de Localización</span>
+        <ion-icon style="float: left ;color: black; font-size: 1.6rem; margin-right: 16px;"
+          [name]="listReferenciaLocalizacion ? 'add-circle' : 'remove-circle' ">
+      </ion-icon>
+    </ion-card-header>
+    <ion-card-content *ngFor="let rs of servicio.referenciaLocalizacion">
+        <span style="font-weight: bolder">{{rs.fecha}}: </span><span>{{rs.referencia}}</span>
+    </ion-card-content>
+  </ion-card>
+
+  <!-- <ion-card *ngIf="servicio?.referenciaLocalizacion"
+    [ngClass]="listReferenciaLocalizacion ? 'listReferenciaLocalizacionCollapse' : 'listReferenciaLocalizacionExpand'">
+    <ion-card-header (click)="listReferenciaLocalizacion = !listReferenciaLocalizacion">
+        <span style="font-weight: bolder">Referencia de Localización</span>
+        <ion-icon style="float: left ;color: black; font-size: 1.6rem; margin-right: 16px;"
+          [name]="listReferenciaLocalizacion ? 'add-circle' : 'remove-circle' ">
+      </ion-icon>
+    </ion-card-header>
+    <ion-card-content>
+        <p>{{servicio?.referenciaLocalizacion}}</p>
+    </ion-card-content>
+  </ion-card> -->
+
+  <ion-card *ngIf="servicio?.comentarios && servicio?.comentarios.length > 0"
+    [ngClass]="listComments ? 'listCommentsCollapse' : 'listCommentsExpand'">
+    <ion-card-header (click)="listComments = !listComments">
+        <span style="font-weight: bolder">Comentarios</span>
+        <ion-icon style="float: left ;color: black; font-size: 1.6rem; margin-right: 16px;"
+          [name]="listComments ? 'add-circle' : 'remove-circle' ">
+      </ion-icon>
+    </ion-card-header>
+    <ion-card-content *ngFor="let comentario of servicio.comentarios">
+        <span style="font-weight: bolder">{{comentario.fecha}}: </span><span>{{comentario.referencia}}</span>
+    </ion-card-content>
+  </ion-card>
+
+
+</ion-content>

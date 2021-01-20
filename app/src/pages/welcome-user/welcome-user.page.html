@@ -1,0 +1,36 @@
+<ion-content>
+  <img [src]="greeting?.image" alt="">
+
+  <ion-grid class="img-container">
+    <ion-row>
+      <ion-col col-12 text-center>
+        <img class="image" [src]="user?.chofer?.foto" onerror="this.src='assets/imgs/user.png';" />
+        <h2 class="class-text">¡{{greeting?.text}} {{user?.chofer?.nombre}}!</h2>
+      </ion-col>
+    </ion-row>
+
+    <ion-row padding>
+      <ion-col col-12 text-center>
+
+        <h3>Que tengas una excelente jornada de trabajo</h3>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+</ion-content>
+
+<ion-footer>
+  <ion-toolbar>
+    <ion-grid>
+      <form>
+        <!-- <ion-item>
+          <p text-wrap>Que tengas una excelente jornada de trabajo</p>
+        </ion-item> -->
+        <div>
+          <ion-button class="button button-color" expand="block" (click)="goToWelcomeWorkingday()">¡GRACIAS!
+          </ion-button>
+        </div>
+      </form>
+    </ion-grid>
+  </ion-toolbar>
+</ion-footer>

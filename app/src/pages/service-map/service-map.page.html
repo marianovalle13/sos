@@ -1,0 +1,84 @@
+<ion-header>
+  <ion-toolbar no-border-top color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button [text]='' defaultHref="service" (click)="back()"></ion-back-button>
+      <ion-title>Mapa</ion-title>
+    </ion-buttons>
+  </ion-toolbar>
+  <ion-row *ngIf="servicio?.estado?.aceptado">
+    <ion-col>
+      <ion-button class="button" style="--background: var(--ion-color-secondary)" expand="block"
+        (click)="goToNewPatent()">ARRIBO</ion-button>
+    </ion-col>
+  </ion-row>
+  <ion-row *ngIf="servicio?.estado?.arribo">
+    <ion-col>
+      <ion-button class="button" style="--background: var(--ion-color-secondary)" expand="block"
+        (click)="goToSignTuto()">FINALIZAR SERVICIO</ion-button>
+    </ion-col>
+  </ion-row>
+
+</ion-header>
+
+<ion-content>
+  <div #map id="map"></div>
+
+</ion-content>
+
+
+<ion-footer *ngIf="!servicio?.estado?.procesando">
+  <ion-toolbar>
+    <ion-row>
+      <ion-col>
+        <ion-button class="button" style="--background: var(--ion-color-secondary)" expand="block" (click)="acceptService()">
+          ACEPTAR</ion-button>
+      </ion-col>
+      <ion-col>
+        <ion-button class="button"
+          style="--background: var(--ion-color-light); color: var(--ion-color-secondary)!important;" expand="block"
+          (click)="goToReason('rechazo')">RECHAZAR</ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-toolbar>
+</ion-footer>
+
+<ion-footer>
+
+  <ion-toolbar *ngIf="servicio?.estado?.arribo || servicio?.estado?.aceptado">
+      <ion-row>
+        <ion-col size="3">
+          <ion-button class="button"
+            style="--background: var(--ion-color-light); color: var(--ion-color-secondary)!important; font-size: 1.2em;" expand="block"
+            (click)="back()">
+            <!-- <ion-icon name="search"></ion-icon>
+            <br> -->
+            Mi Móvil
+          </ion-button>
+        </ion-col>
+        <ion-col size="3">
+          <ion-button class="button"
+            style="--background: var(--ion-color-light); color: var(--ion-color-secondary)!important; font-size: 1.2em;" expand="block"
+            (click)="back()">
+            <!-- <ion-icon name="search"></ion-icon>
+            <br> -->
+            Origen
+          </ion-button>
+        </ion-col>
+        <ion-col size="3">
+          <ion-button text-center class="button"
+            style="--background: var(--ion-color-light); color: var(--ion-color-secondary)!important; font-size: 1.2em;" expand="block"
+            (click)="back()">
+          <!-- <ion-icon name="search"></ion-icon>
+          <br> -->
+            Todo
+          </ion-button>
+        </ion-col>
+        <ion-col size="3" text-center>
+         <ion-button class="button" style="width: 58px !important; --border-radius: 40px !important;--background: var(--ion-color-secondary);">
+        <ion-icon name="pin"></ion-icon>
+      </ion-button>
+        </ion-col>
+      </ion-row>
+
+    </ion-toolbar>
+</ion-footer>

@@ -1,0 +1,66 @@
+<ion-header>
+  <ion-toolbar no-border-top color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button [text]='' defaultHref="car-images"></ion-back-button>
+      <ion-title>Fotos</ion-title>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+
+  <ion-card>
+    <ion-card-content>
+
+      <ion-row style="margin-bottom: 5px;">
+        <ion-col>
+          <h2 style="color: var(--ion-color-secondary); font-weight: bold;">Fotos vehículo</h2>
+        </ion-col>
+        <ion-col size="1">
+        </ion-col>
+
+      </ion-row>
+
+      <ion-row>
+        <ion-col class="col-class-gray" padding>
+          <ion-img [src]="images.arribo[1].image"></ion-img>
+        </ion-col>
+        <ion-col class="col-class-gray" padding>
+          <ion-img [src]="images.arribo[2].image"></ion-img>
+        </ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-col class="col-class-gray" padding>
+          <ion-img [src]="images.arribo[3].image"></ion-img>
+        </ion-col>
+        <ion-col class="col-class-gray" padding>
+          <ion-img [src]="images.arribo[4].image"></ion-img>
+        </ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-col class="col-class-gray" padding>
+          <ion-img [src]="images.arribo[5].image"></ion-img>
+        </ion-col>
+        <ion-col class="col-class-gray" padding>
+          <!-- <ion-img src="assets/imgs/car3.svg"></ion-img> -->
+        </ion-col>
+      </ion-row>
+
+    </ion-card-content>
+  </ion-card>
+
+</ion-content>
+
+<ion-footer>
+  <ion-toolbar>
+    <ion-row>
+      <ion-col>
+        <ion-button class="button" style="--background: var(--ion-color-secondary);" expand="block" (click)="finishService()">CONTINUAR</ion-button>
+      </ion-col>
+    </ion-row>
+
+  </ion-toolbar>
+</ion-footer>

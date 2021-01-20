@@ -1,0 +1,48 @@
+<ion-header>
+  <ion-toolbar no-border-top color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button [text]='' defaultHref="patent-new"></ion-back-button>
+      <ion-title>Fotos</ion-title>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-row>
+    <ion-col padding margin>
+      <ion-img src="assets/imgs/auto-estacionado.svg"></ion-img>
+    </ion-col>
+  </ion-row>
+
+  <ion-row>
+    <ion-col style="padding-left: 16px; padding-right: 16px;">
+      <h2 style="font-size: 16px;">4.</h2>
+      <h2 style="font-size: 16px;">Realizar la captura del vehículo y el lugar donde fue descargado</h2>
+    </ion-col>
+  </ion-row>
+
+  <ion-row>
+    <ion-col>
+      <ion-fab horizontal="center">
+        <ion-fab-button color="light">
+          <ion-icon style="font-size: 4rem;" name="camera"></ion-icon>
+        </ion-fab-button>
+      </ion-fab>
+    </ion-col>
+  </ion-row>
+
+</ion-content>
+
+<ion-footer>
+  <ion-toolbar style="--background: var(--ion-color-lightblue)">
+    <ion-row>
+      <ion-col>
+        <ion-button class="button" style="--background: var(--ion-color-secondary)" expand="block"
+          (click)="goToServiceEnd()">
+          GUARDAR</ion-button>
+      </ion-col>
+    </ion-row>
+
+  </ion-toolbar>
+</ion-footer>

@@ -1,0 +1,37 @@
+ion-content {
+  .card-content-md {
+    padding-left: 16px;
+    padding-right: 0px;
+    padding-top: 0px;
+    padding-bottom: 0px;
+    // font-size: 14px;
+    // line-height: 1.5;
+  }
+
+  .card-class {
+    padding-left: 0px !important;
+  }
+
+  .col-padding {
+    padding: 8px;
+    padding-left: 16px !important;
+  }
+
+  .class-image {
+    display: flex;
+    width: 6rem;
+    border-radius: 100px;
+  }
+
+  .col-image {
+    padding-left: 16px;
+  }
+
+  .button-warning {
+    color: white !important;
+    height: 15px !important;
+    font-size: 0.8em;
+    --border-radius: 25px !important;
+  }
+
+}

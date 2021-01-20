@@ -1,0 +1,48 @@
+<ion-content style="--background: var(--ion-color-medium)">
+  <ion-slides #slides pager="true" style="--bullet-background:black" [options]="slideOptions">
+    <ion-slide padding margin-bottom *ngFor="let item of implementos">
+      <ion-radio-group [(ngModel)]="item.checked" (ionChange)="select(slides,item,$event)">
+        <ion-grid padding margin-top>
+          <ion-row>
+            <ion-col size="12">
+              <img src="../assets/imgs/onboarding1.svg" alt="">
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col text-center>
+              <h4 style="font-size: 21px; margin-top: 25%; margin-bottom: 10px;">Para avanzar contanos algunos datos sobre tu estado</h4>
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col text-center>
+              <p style="margin-top: 2em;">¿Cuenta con {{item.nombre}}?</p>
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col >
+            </ion-col>
+            <ion-col size="5">
+              <ion-item style="--background: var(--ion-color-medium)" no-lines>
+                <ion-label>Si</ion-label>
+                <ion-radio slot="start" value='1'></ion-radio>
+              </ion-item>
+            </ion-col>
+            <ion-col size="5">
+              <ion-item style="--background: var(--ion-color-medium)" no-lines>
+                <ion-label>No</ion-label>
+                <ion-radio slot="start" value='0'></ion-radio>
+              </ion-item>
+            </ion-col>
+            <ion-col >
+            </ion-col>
+          </ion-row>
+          <ion-row *ngIf="showEndButton">
+            <ion-col text-center>
+              <ion-button class="button" style="--background: var(--ion-color-secondary); margin-top: 2rem;" expand="block" (click)="goToStatus()">FINALIZAR</ion-button>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      </ion-radio-group>
+    </ion-slide>
+  </ion-slides>
+</ion-content>

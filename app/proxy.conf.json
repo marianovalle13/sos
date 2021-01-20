@@ -1,0 +1,14 @@
+{
+  "/api/fileupload": {
+    "target": "https://wsupload.redsos.com.ar",
+    "secure": false,
+    "logLevel": "debug",
+    "changeOrigin": true
+  },
+  "/api/*": {
+    "target": "https://wsgap2.redsos.com.ar",
+    "secure": false,
+    "logLevel": "debug",
+    "changeOrigin": true
+  }
+}

@@ -1,0 +1,113 @@
+// App Styles
+// ----------------------------------------------------------------------------
+// Put style rules here that you want to apply to the entire application. These
+// styles are for the entire app and not just one component. Additionally, this
+// file can hold Sass mixins, functions, and placeholder classes to be imported
+// and used throughout the application.
+
+.button{
+        color: white !important;
+        height: 58px !important;
+        border-radius: 2px !important;
+    }
+
+
+// Utils
+.transparent {
+    background: transparent;
+}
+
+.no-lines {
+    --border-width: 0 0 0 0 !important;
+}
+
+// Loading sin fondo
+.loading-wrapper {
+    background: transparent !important;
+    box-shadow: none !important;
+
+    .loading-content {
+        display: none;
+    }
+
+    .spinner {
+        width: 70px !important;
+        height: 70px !important;
+    }
+}
+app-slide {
+    .swiper-pagination-bullets {
+        bottom: inherit !important;
+        top: 35vh !important;
+    }
+}
+
+
+
+.button-asignado {
+  --background: var(--ion-color-blue-shade);
+}
+
+.button-preasignado {
+  --background: var(--ion-color-blue-shade);
+}
+
+.button-rechazado {
+  --background: var(--ion-color-violet-shade);
+}
+
+.button-aceptado {
+  --background: var(--ion-color-green-shade);
+}
+
+.button-arribo {
+  --background: var(--ion-color-green-shade);
+}
+
+.button-finalizado {
+    --background: var(--ion-color-gray-shade);
+}
+
+.button-preasignado {
+    --background: var(--ion-color-yellow-shade);
+}
+
+.message-modal {
+    background: rgba(0, 0, 0, 0.5) !important;
+    padding: 10% 5% !important;
+
+    .modal-wrapper {
+        height: 30%;
+        border-radius: 5px;
+        background: white;
+
+        ion-content {
+            --background: white;
+            --color: black!important;
+
+            ion-row {
+                justify-content: center;
+
+                ion-icon {
+                    font-size: 1.8em;
+                }
+
+                h2 {
+                    font-size: 1.4em;
+                    margin: .1em 0;
+                }
+
+                p {
+                    margin-top: 0.2em;
+                }
+            }
+            ion-row:first-child {
+                margin-top: .2em
+            }
+        }
+
+        ion-footer {
+            padding: .5em;
+        }
+    }
+}

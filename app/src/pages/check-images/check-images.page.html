@@ -1,0 +1,65 @@
+<ion-header>
+  <ion-toolbar no-border-top color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button [text]='' defaultHref="car-images"></ion-back-button>
+      <ion-title>Fotos</ion-title>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+
+  <ion-card>
+    <ion-card-content>
+
+              <ion-row style="margin-bottom: 5px;">
+                <ion-col>
+                  <h2 style="color: var(--ion-color-secondary); font-weight: bold;">¿Terminar de tomar fotos?</h2>
+                  <p style="margin-bottom: 8px;">Asegurarse de tomar las fotos necesarias del móvil. Ejemplos:</p>
+                </ion-col>
+                <ion-col size="1">
+                </ion-col>
+
+              </ion-row>
+
+              <ion-row>
+                <ion-col class="col-class-gray" padding>
+                  <ion-img src="assets/imgs/car1.svg"></ion-img>
+                </ion-col>
+                <ion-col class="col-class-gray" padding>
+                  <ion-img src="assets/imgs/car2.svg"></ion-img>
+                </ion-col>
+              </ion-row>
+
+              <ion-row>
+                <ion-col class="col-class-gray" padding>
+                  <ion-img src="assets/imgs/car3.svg"></ion-img>
+                </ion-col>
+                <ion-col class="col-class-gray" padding>
+                  <ion-img src="assets/imgs/car4.svg"></ion-img>
+                </ion-col>
+              </ion-row>
+
+    </ion-card-content>
+  </ion-card>
+
+</ion-content>
+
+<ion-footer>
+  <ion-toolbar>
+    <ion-row>
+      <ion-col>
+        <ion-button class="button"
+          style="--background: var(--ion-color-light); color: var(--ion-color-secondary)!important;" expand="block"
+          (click)="goToCarImage()">CONTINUAR</ion-button>
+      </ion-col>
+      <ion-col>
+        <ion-button class="button"
+          style="--background: var(--ion-color-secondary);" expand="block"
+          (click)="goToTakenImages()">TERMINAR</ion-button>
+      </ion-col>
+    </ion-row>
+
+  </ion-toolbar>
+</ion-footer>

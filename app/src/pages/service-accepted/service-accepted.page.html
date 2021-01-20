@@ -1,0 +1,124 @@
+<ion-header>
+  <ion-toolbar no-border-top color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button [text]='' defaultHref="services"></ion-back-button>
+      <ion-title>Detalle de servicio</ion-title>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<!-- fab con el telefono -->
+<ion-fab vertical="bottom" horizontal="end" slot="fixed"
+  style="margin-bottom: 1rem; margin-right: 1rem;">
+  <ion-fab-button (click)="goToCall(call)" style="--background: var(--ion-color-secondary);">
+    <ion-img src="assets/imgs/icon-asistencia.svg"></ion-img>
+  </ion-fab-button>
+</ion-fab>
+
+
+<ion-content>
+
+
+  <ion-row>
+    <ion-col *ngIf="!finish">
+      <ion-button class="button" style="--background: var(--ion-color-secondary)" expand="block"
+        (click)="goToNewPatent()">ARRIBO</ion-button>
+    </ion-col>
+  </ion-row>
+
+  <ion-row *ngIf="finish">
+    <ion-col>
+      <ion-button class="button" style="--background: var(--ion-color-secondary)" expand="block" (click)="goToSignTuto()">FINALIZAR SERVICIO</ion-button>
+    </ion-col>
+  </ion-row>
+
+  <ion-card>
+
+    <ion-card-content class="card-class">
+      <ion-row>
+        <ion-col size="8">
+          <h2 style="color: black; font-weight: bold;">{{servicio?.tipoServicio?.nombre}}</h2>
+          <p style="color: gray; margin-bottom: 0px; font-size: 0.8em;">{{servicioId}}: {{servicio?.diagnostico?.nombre}}</p>
+        </ion-col>
+        <ion-col size="4" text-right>
+          <ion-button *ngIf="!accepted" style="margin-bottom: 5px; padding-right: 1rem;"
+            class="button-warning" [ngClass]="servicio ? servicioCodigoEstadoButtonClass : ''">{{servicioCodigoEstadoNombre}}</ion-button>
+        </ion-col>
+      </ion-row>
+
+
+    </ion-card-content>
+  </ion-card>
+
+
+  <ion-card (click)="goToMapChange()">
+    <ion-card-content class="card-class-map">
+
+      <ion-row>
+        <ion-col class="col-image" size="3">
+          <ion-icon style="color: var(--ion-color-primary); font-size: 5rem;" name="globe"></ion-icon>
+        </ion-col>
+        <ion-col>
+          <h2 style=" color: black; margin-top: 16px;">VER MAPA</h2>
+        </ion-col>
+        <ion-col text-right>
+          <ion-icon style="color: black; font-size: 1.6rem; margin-top: 16px;" item-end name="arrow-forward"></ion-icon>
+        </ion-col>
+
+      </ion-row>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card>
+    <ion-card-content>
+      <ion-row >
+        <h2 style="font-size: 1.4rem; color: black;">Diagnóstico </h2>
+        <p style="margin-bottom: 0px; margin-left: 5px; color: gray;">{{servicio?.diagnostico?.nombre}}</p>
+      </ion-row>
+      <ion-row>
+        <h2 style="font-size: 1.4rem; color: black;">Referencia de servicio</h2>
+        <p style="margin-bottom: 0px; margin-left: 5px; color: gray;">FALTA</p>
+      </ion-row>
+      <ion-row>
+        <h2 style="font-size: 1.4rem; color: black;">Socio</h2>
+        <p style="margin-bottom: 0px; margin-left: 5px; color: gray;">{{servicio?.socio?.nombre}}</p>
+      </ion-row>
+      <ion-row>
+        <h2 style="font-size: 1.4rem; color: black;">Marca</h2>
+        <p style="margin-bottom: 0px; margin-left: 5px; color: gray;">{{servicio?.socio?.vehiculo?.marca}}</p>
+      </ion-row>
+      <ion-row>
+        <h2 style="font-size: 1.4rem; color: black;">Patente</h2>
+        <p style="margin-bottom: 0px; margin-left: 5px; color: gray;">{{servicio?.socio?.vehiculo?.patente}}</p>
+      </ion-row>
+      <ion-row>
+        <h2 style="font-size: 1.4rem; color: black;">Color</h2>
+        <p style="margin-bottom: 0px; margin-left: 5px; color: gray;">{{servicio?.socio?.vehiculo?.color}}</p>
+      </ion-row>
+      <ion-row>
+        <h2 style="font-size: 1.4rem; color: black;">Origen</h2>
+        <p style="margin-bottom: 0px; margin-left: 5px; color: gray;">{{servicio?.direccionOrigen}}, {{servicio?.localidadOrigen?.nombre}}</p>
+      </ion-row>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card *ngIf="servicio?.referenciaLocalizacion">
+    <ion-card-content>
+      <p>Referencia de localización: {{servicio?.referenciaLocalizacion}}</p>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card>
+    <ion-card-content>
+      <p>Quiero dejar un comentario</p>
+      <ion-textarea placeholder="Escriba aquí su comentario..."></ion-textarea>
+      <ion-row>
+        <ion-col text-left>
+          <ion-button class=" save-comment">Guardar</ion-button>
+        </ion-col>
+      </ion-row>
+    </ion-card-content>
+  </ion-card>
+
+
+</ion-content>

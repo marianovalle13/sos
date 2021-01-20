@@ -1,0 +1,40 @@
+<ion-header>
+  <ion-toolbar no-border-top color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button [text]='' defaultHref="service"></ion-back-button>
+      <ion-title>Servicios</ion-title>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-card>
+    <ion-card-content>
+        <ion-list>
+          <ion-radio-group [(ngModel)]="motivo">
+            <ion-list-header>
+              <h2 style="font-weight: bold;">{{reasons[reason].title}}</h2>
+            </ion-list-header>
+            <ion-item *ngFor="let motivo of motivos">
+              <ion-label style="font-size: 1.4rem;">{{motivo[reasons[reason].fieldLabel]}}</ion-label>
+              <ion-radio slot="start" color="secondary"  [value]='motivo.id'></ion-radio>
+            </ion-item>
+          </ion-radio-group>
+
+        </ion-list>
+    </ion-card-content>
+  </ion-card>
+
+</ion-content>
+
+<ion-footer>
+  <ion-toolbar>
+    <ion-row>
+      <ion-col>
+        <ion-button [disabled]="!motivo"  class="button" style="--background: var(--ion-color-secondary)" expand="block" (click)="save()">ACEPTAR</ion-button>
+      </ion-col>
+    </ion-row>
+
+  </ion-toolbar>
+</ion-footer>

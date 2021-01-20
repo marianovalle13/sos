@@ -1,0 +1,27 @@
+ion-content {
+    //background: $bg-gradient;
+
+    .logo-container {
+        display: flex;
+        align-items: center;
+        flex-direction: inherit;
+
+        div {
+            width: 100%;
+        }
+
+        .class-text{
+            color: var(--ion-color-primary-shade);
+        }
+
+    }
+
+
+}
+
+ion-footer {
+
+    .button-color{
+        --background: var(--ion-color-secondary);
+    }
+}

@@ -1,0 +1,129 @@
+<ion-header>
+  <ion-toolbar color="primary">
+
+    <ion-buttons slot="start">
+      <ion-button style="--background: var(--ion-color-primary);" disabled class="button" expand="block">
+        <ion-icon style="color: var(--ion-color-light);" name="lolo"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+
+    <ion-title text-center>Estado</ion-title>
+    <ion-buttons slot="end">
+      <ion-button style="--background: var(--ion-color-primary);" class="button" expand="block" (click)="logOut()">
+        <ion-icon style="color: var(--ion-color-light);" name="log-out"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<!-- fab con el telefono -->
+<ion-fab vertical="bottom" horizontal="end" slot="fixed" style="margin-bottom: 8rem; margin-right: 1rem;">
+  <a href="{{telefono ? 'tel:' + telefono.telefono : 'javascript:void(0);'}}">
+    <ion-fab-button style="--background: var(--ion-color-secondary); width: 6rem; height: 6rem;" [disabled]="!telefono">
+        <ion-icon name="call" style="font-size: 4rem;"></ion-icon>
+    </ion-fab-button>
+  </a>
+</ion-fab>
+
+
+<ion-content>
+  <ion-card>
+
+    <ion-card-content class="card-class">
+      <ion-row>
+        <ion-col class="col-image" size="3">
+          <!-- <img class="class-image" src="assets/imgs/user.png"> -->
+          <img class="class-image" [src]="user?.chofer?.foto" onerror="this.src='assets/imgs/user.png';" />
+        </ion-col>
+        <ion-col size="9">
+          <h2 style=" color: black; margin-bottom: 8px;">{{user.chofer.nombre}} {{user.chofer.apellido}}</h2>
+          <p style="color: gray; margin-bottom: 0px;">DNI: {{user.dni}}</p>
+          <p style="color: gray; margin-bottom: 0px;">Patente: {{user.patente}}</p>
+        </ion-col>
+      </ion-row>
+
+
+    </ion-card-content>
+  </ion-card>
+
+
+  <ion-card>
+
+    <ion-card-content>
+
+      <ion-row>
+        <ion-col col-6>
+          <p style="margin-top: 8px;">MI ESTADO:</p>
+          <h2 *ngIf="estado?.id" style="font-size: 1.4em; color: var(--ion-color-primary)">{{settings.usuarioEstadosById[estado.id].label}}</h2>
+        </ion-col>
+        <ion-col col-6>
+          <ion-button style="--background: var(--ion-color-secondary);" class="button" expand="block" (click)="goToStatusChange()">CAMBIAR
+          </ion-button>
+        </ion-col>
+      </ion-row>
+
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card style="--background: var(--ion-color-success)" *ngIf="servicio && servicio.procesando" (click)="goToService()">
+    <ion-row>
+      <ion-col class="col-padding">
+        <label style="color: var(--ion-color-light);">Servicio en curso</label>
+      </ion-col>
+      <ion-col class="col-padding" text-right>
+        <ion-icon style="color: var(--ion-color-light);" name="arrow-forward"></ion-icon>
+      </ion-col>
+    </ion-row>
+  </ion-card>
+
+  <ion-card style="--background: var(--ion-color-yellow)" *ngIf="servicio && servicio.asignado" (click)="goToService()">
+    <ion-row>
+      <ion-col class="col-padding">
+        <label style="color: var(--ion-color-dark);">Servicio asignado</label>
+      </ion-col>
+      <ion-col class="col-padding" text-right>
+        <ion-icon style="color: var(--ion-color-dark);" name="arrow-forward"></ion-icon>
+      </ion-col>
+    </ion-row>
+  </ion-card>
+
+  <ion-card>
+    <ion-card-content>
+      <ion-row>
+        <ion-col col-12>
+          <h2>Lista de materiales</h2>
+          <ul>
+            <div *ngFor="let item of implementos">
+              <li *ngIf="item.cantidad > 0">{{item.nombre}}</li>
+            </div>
+          </ul>
+        </ion-col>
+      </ion-row>
+    </ion-card-content>
+  </ion-card>
+
+</ion-content>
+
+<ion-toolbar style="height: 7rem;">
+  <ion-tabs style="height: 7rem;">
+    <ion-tab-bar slot="bottom" style="height: 7rem;">
+
+      <!-- <ion-tab-button (click)="goToServicesNo(serviceNo)">
+        <ion-icon style="color: gray;" name="list-box"></ion-icon>
+        <ion-label style="color: gray;">Servicios</ion-label>
+      </ion-tab-button> -->
+
+      <ion-tab-button (click)="goToServices()">
+        <ion-icon style="color: gray;" name="list-box"></ion-icon>
+        <ion-label style="color: gray;">Servicios</ion-label>
+      </ion-tab-button>
+
+      <ion-tab-button>
+        <ion-icon style="color: black;" name="play-circle"></ion-icon>
+        <ion-label style="color: black;">Estado</ion-label>
+      </ion-tab-button>
+
+
+    </ion-tab-bar>
+  </ion-tabs>
+</ion-toolbar>

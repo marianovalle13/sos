@@ -1,0 +1,68 @@
+<ion-header>
+  <ion-toolbar no-border-top color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button [text]='' defaultHref="car-images4"></ion-back-button>
+      <ion-title>Destino</ion-title>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card>
+    <ion-card-content>
+
+      <ion-row style="margin-bottom: 5px;">
+        <ion-col>
+          <h2 style="color: var(--ion-color-secondary); font-weight: bold;">FOTOS VEHÍCULO</h2>
+        </ion-col>
+        <ion-col size="1">
+        </ion-col>
+
+      </ion-row>
+
+      <ion-row>
+        <ion-col class="col-class-gray" padding *ngIf="images.final[1]">
+          <ion-img style="width:100px" [src]="images.final[1].image"></ion-img>
+        </ion-col>
+        <ion-col class="col-class-gray" padding *ngIf="images.final[2]">
+          <ion-img style="width:100px" [src]="images.final[2].image"></ion-img>
+        </ion-col>
+        <ion-col class="col-class-gray" padding *ngIf="images.final[3]">
+          <ion-img style="width:100px" [src]="images.final[3].image"></ion-img>
+        </ion-col>
+        <ion-col class="col-class-gray" padding *ngIf="images.final[4]">
+          <ion-img style="width:100px" [src]="images.final[4].image"></ion-img>
+        </ion-col>
+        <ion-col class="col-class-gray" padding *ngIf="images.final[5]">
+          <ion-img style="width:100px" [src]="images.final[5].image"></ion-img>
+        </ion-col>
+      </ion-row>
+
+
+
+    </ion-card-content>
+  </ion-card>
+
+
+  <ion-card>
+    <ion-card-content>
+      <p>Quiero dejar un comentario</p>
+      <ion-textarea placeholder="Escriba aquí su comentario..." [(ngModel)]="comment"></ion-textarea>
+    </ion-card-content>
+  </ion-card>
+
+</ion-content>
+
+
+<ion-footer>
+  <ion-toolbar>
+    <ion-row>
+      <ion-col>
+        <ion-button class="button" style="--background: var(--ion-color-secondary)" expand="block"
+          (click)="createComment()">
+          FINALIZAR SERVICIO</ion-button>
+      </ion-col>
+    </ion-row>
+
+  </ion-toolbar>
+</ion-footer>

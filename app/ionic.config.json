@@ -1,0 +1,17 @@
+{
+  "name": "sos",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "angular",
+  "proxies": [
+    {
+      "path": "/api/fileupload",
+      "proxyUrl": "https://wsupload.redsos.com.ar"
+    },
+    {
+      "path": "/api/*",
+      "proxyUrl": "https://wsgap2.redsos.com.ar"
+    }
+  ]
+}

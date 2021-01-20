@@ -1,0 +1,74 @@
+<ion-header>
+  <ion-toolbar color="primary">
+
+    <ion-buttons slot="start">
+      <ion-button style="--background: var(--ion-color-primary);" disabled class="button" expand="block">
+        <ion-icon style="color: var(--ion-color-light);" name="lolo"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+
+    <ion-title text-center>Estado</ion-title>
+    <ion-buttons slot="end">
+      <ion-button style="--background: var(--ion-color-primary);" class="button" expand="block" (click)="logOut()">
+        <ion-icon style="color: var(--ion-color-light);" name="log-out"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-card *ngIf="estado.id == settings.usuarioEstados.enServicio.id">
+    <ion-card-content class="card-class">
+      <ion-list>
+          <ion-list-header>
+            <h2>Esta en servicio y no puede cambiar su estado</h2>
+          </ion-list-header>
+      </ion-list>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card *ngIf="estado.id != settings.usuarioEstados.enServicio.id">
+    <ion-card-content class="card-class">
+      <ion-list>
+        <ion-radio-group [(ngModel)]="estadoNuevo">
+          <ion-list-header>
+            <h2>Cambiar a:</h2>
+            <a (click)="goBack()" style="color: black !important;">Cancelar</a>
+          </ion-list-header>
+          <ion-item *ngIf="estado.id == settings.usuarioEstados.fueraDeServicio.id">
+            <ion-label style="font-size: 1.4rem; color: var(--ion-color-success);">{{settings.usuarioEstados.libre.label}}</ion-label>
+            <ion-radio slot="start" color="secondary" [value]='settings.usuarioEstados.libre.id'></ion-radio>
+          </ion-item>
+          <div *ngIf="estado.id == settings.usuarioEstados.libre.id">
+            <ion-list-header>
+              <h2 style="color: var(--ion-color-danger); padding-left: 35px;">NO DISPOIBLE</h2>
+            </ion-list-header>
+            <ion-item style="padding-left: 50px;" *ngFor="let motivo of rechazoMotivos">
+              <ion-label style="font-size: 1.4rem;white-space:pre-wrap">{{motivo.motivo}}</ion-label>
+              <ion-radio color="secondary"  slot="start" [value]='motivo.id'></ion-radio>
+            </ion-item>
+          </div>
+        </ion-radio-group>
+      </ion-list>
+    </ion-card-content>
+  </ion-card>
+
+</ion-content>
+
+<ion-footer>
+  <ion-toolbar>
+    <ion-row *ngIf="estado.id == settings.usuarioEstados.enServicio.id">
+      <ion-col>
+        <ion-button class="button" style="--background: var(--ion-color-secondary)" expand="block" (click)="goBack()">
+          VOLVER</ion-button>
+      </ion-col>
+    </ion-row>
+    <ion-row *ngIf="estado.id != settings.usuarioEstados.enServicio.id">
+      <ion-col>
+        <ion-button [disabled]="!estadoNuevo" class="button" style="--background: var(--ion-color-secondary)" expand="block" (click)="changeState()">
+          ACEPTAR</ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-toolbar>
+</ion-footer>

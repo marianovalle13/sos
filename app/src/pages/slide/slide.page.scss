@@ -1,0 +1,15 @@
+ion-content {
+  .swiper-container-horizontal > .swiper-pagination-bullets,
+  .swiper-pagination-custom,
+  .swiper-pagination-fraction {
+    bottom: 305px !important;
+  }
+}
+// .swiper-container-horizontal.swiper-pagination-bullets.swiper-pagination-bullets{
+//     bottom: 305px !important;
+// }
+// .swiper-pagination {
+//     bottom: 305px !important;
+// }
+
+//class="md slides-md swiper-container hydrated swiper-container-initialized swiper-container-horizontal swiper-container-android"

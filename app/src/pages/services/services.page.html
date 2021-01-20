@@ -1,0 +1,103 @@
+<ion-header>
+  <ion-toolbar color="primary">
+
+    <ion-buttons slot="start">
+      <ion-button style="--background: var(--ion-color-primary);" disabled class="button" expand="block">
+        <ion-icon style="color: var(--ion-color-light);" name="lolo"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+
+    <ion-title text-center>Servicios</ion-title>
+    <ion-buttons slot="end">
+      <ion-button style="--background: var(--ion-color-primary);" class="button" expand="block" (click)="logOut()">
+        <ion-icon style="color: var(--ion-color-light);" name="log-out"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div *ngFor="let item of servicios">
+    <ion-card (click)="goToService(item)"  *ngIf="settings.codigosEstado[item.codigo_estado].procesando || settings.codigosEstado[item.codigo_estado].asignado || settings.codigosEstado[item.codigo_estado].preasignado">
+      <ion-card-content class="card-class">
+        <ion-row>
+          <ion-col class="col-image" size="3">
+            <ion-icon style="color: var(--ion-color-primary); font-size: 5rem;" name="car"></ion-icon>
+          </ion-col>
+          <ion-col size="9">
+            <ion-row>
+              <ion-col size="10">
+                <p style="color: gray; margin-bottom: 0px;">Asistencia: {{item.tipo}}</p>
+                <p style="color: gray; margin-bottom: 0px;">Nº {{item.servicio}} - {{item.diagnostico}}</p>
+              </ion-col>
+              <ion-col text-right size="2">
+                <ion-icon style="color: black; font-size: 1.6rem;" item-end name="arrow-forward"></ion-icon>
+              </ion-col>
+            </ion-row>
+
+            <!-- <ion-row>
+              <ion-col size="10">
+                <h2 style=" color: black; margin-bottom: 8px;">GRÚA - {{item.estado}}</h2>
+              </ion-col>
+              <ion-col text-right size="2">
+                <ion-icon style="color: black; font-size: 1.6rem;" item-end name="arrow-forward"></ion-icon>
+              </ion-col>
+            </ion-row>
+            <p style="color: gray; margin-bottom: 0px;">Asistencia: Traslado</p>
+            <p style="color: gray; margin-bottom: 0px;">Nº {{item.servicio}} - {{item.diagnostico}}</p> -->
+            <ion-row>
+              <ion-col text-right>
+                <ion-button text-right class="button-warning {{getCodigoEstadoButtonClass(item.codigo_estado)}}">{{item.estado?item.estado:'Preasignado'}}
+                </ion-button>
+              </ion-col>
+            </ion-row>
+          </ion-col>
+        </ion-row>
+      </ion-card-content>
+    </ion-card>
+  </div>
+
+
+  <ion-card button (click)="goToRecord()">
+  <ion-card-content class="card-class">
+
+    <ion-row>
+      <ion-col class="col-image" size="3">
+        <ion-icon style="color: var(--ion-color-primary); font-size: 5rem;" name="filing"></ion-icon>
+
+        </ion-col>
+        <ion-col size="9">
+          <ion-row>
+            <ion-col>
+              <h2 style=" color: black; margin-bottom: 8px;">VER HISTORIAL DE SERVICIOS</h2>
+            </ion-col>
+          </ion-row>
+          <p style="color: gray; margin-bottom: 0px;">Consultar mi archivo de servicios realizados</p>
+        </ion-col>
+      </ion-row>
+
+
+    </ion-card-content>
+  </ion-card>
+
+
+</ion-content>
+
+<ion-toolbar style="height: 7rem;" >
+  <ion-tabs style="height: 7rem;">
+    <ion-tab-bar slot="bottom" style="height: 7rem;">
+
+      <ion-tab-button >
+        <ion-icon style="color: black;" name="list-box"></ion-icon>
+        <ion-label style="color: black;">Servicios</ion-label>
+      </ion-tab-button>
+
+      <ion-tab-button (click)="goToStatus()">
+        <ion-icon style="color: gray;" name="play-circle"></ion-icon>
+        <ion-label style="color: gray;">Estado</ion-label>
+      </ion-tab-button>
+
+
+    </ion-tab-bar>
+  </ion-tabs>
+</ion-toolbar>

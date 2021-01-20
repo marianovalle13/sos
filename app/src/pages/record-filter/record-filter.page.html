@@ -1,0 +1,37 @@
+<ion-header>
+  <ion-toolbar no-border-top color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button [text]=''></ion-back-button>
+      <ion-title>Filtros</ion-title>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-card>
+    <ion-card-content>
+        <ion-list>
+          <ion-radio-group [(ngModel)]="filterSelected">
+            <ion-item *ngFor="let filter of filters">
+              <ion-label style="font-size: 1.4rem;">{{filter.label}}</ion-label>
+              <ion-radio slot="start" color="secondary"  [value]='filter.value'></ion-radio>
+            </ion-item>
+          </ion-radio-group>
+
+        </ion-list>
+    </ion-card-content>
+  </ion-card>
+
+</ion-content>
+
+<ion-footer>
+  <ion-toolbar>
+    <ion-row>
+      <ion-col>
+        <ion-button [disabled]="!filterSelected"  class="button" style="--background: var(--ion-color-secondary)" expand="block" (click)="search()">BUSCAR</ion-button>
+      </ion-col>
+    </ion-row>
+
+  </ion-toolbar>
+</ion-footer>

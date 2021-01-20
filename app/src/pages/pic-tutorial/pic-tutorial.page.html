@@ -1,0 +1,69 @@
+<ion-header>
+  <ion-toolbar no-border-top color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button [text]='' defaultHref="patent-new"></ion-back-button>
+      <ion-title>Fotos</ion-title>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card>
+    <ion-card-content>
+        <ion-row style="margin-bottom: 5px;">
+          <ion-col >
+            <h2 style="color: var(--ion-color-secondary); font-weight: bold;">FOTOS VEHÍCULO</h2>
+            <p style="margin-bottom: 8px;">Haga click en "COMENZAR" y el sistema lo guiará en el proceso.</p>
+          </ion-col>
+          <ion-col size="1">
+          </ion-col>
+        
+        </ion-row>
+
+      <ion-row>
+        <ion-col size="4" class="col-class-red" padding>
+          <ion-img src="assets/imgs/car1.svg"></ion-img>
+        </ion-col>
+        <ion-col size="4" class="col-class-gray" padding>
+          <ion-img src="assets/imgs/car2.svg"></ion-img>
+        </ion-col>
+        <ion-col size="4" class="col-class-gray" padding>
+          <ion-img src="assets/imgs/car3.svg"></ion-img>
+        </ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-col size="4" class="col-class-gray" padding>
+          <ion-img src="assets/imgs/car4.svg"></ion-img>
+        </ion-col>
+        <ion-col size="4" class="col-class-gray" padding>
+          <ion-img src="assets/imgs/car5.svg"></ion-img>
+        </ion-col>
+        <ion-col size="4" class="col-class-gray" text-center padding>
+          <ion-img src="assets/imgs/plus.png" style="width: 5rem; margin-left: 1rem;"></ion-img>
+        </ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-col>
+          <p style="color: var(--ion-color-danger);">*Al menos una foto es obligatoria</p>
+        </ion-col>        
+      </ion-row>
+
+    </ion-card-content>
+  </ion-card>
+
+</ion-content>
+
+
+<ion-footer>
+  <ion-toolbar>
+    <ion-row>
+      <ion-col>
+        <ion-button class="button" style="--background: var(--ion-color-secondary)" expand="block" (click)="goToCarImages()">
+          COMENZAR</ion-button>
+      </ion-col>
+    </ion-row>
+
+  </ion-toolbar>
+</ion-footer>
